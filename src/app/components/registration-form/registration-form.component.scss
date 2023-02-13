@@ -1,3 +1,12 @@
+@mixin input-text {
+  font-family: "Heebo";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 26px;
+  padding: 12px;
+}
+
 .form {
   display: flex;
   flex-direction: column;
@@ -112,25 +121,8 @@
         background: #ffffff;
         border: 1px solid #0a4691;
         border-radius: 4px;
-      }
-      .form-radios-container {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        padding: 0px;
 
-        width: 496px;
-        height: 31px;
-
-        font-family: "Heebo";
-        font-style: normal;
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 24px;
-
-        text-align: right;
-
-        color: #000000;
+        @include input-text;
       }
 
       .form-input-container-select-dates {
@@ -183,15 +175,9 @@
 
         .form-input--medium-select {
           box-sizing: border-box;
-          font-family: "Heebo";
-          font-style: normal;
-          font-weight: 400;
-          font-size: 18px;
-          line-height: 26px;
           display: flex;
           flex-direction: row;
           align-items: center;
-          padding: 12px;
           gap: 12px;
           width: 313px;
           height: 59px;
@@ -201,6 +187,10 @@
           flex: none;
           order: 1;
           flex-grow: 0;
+
+          &.input-style {
+            @include input-text;
+          }
         }
       }
 
@@ -212,6 +202,49 @@
         order: 0;
         align-self: stretch;
         flex-grow: 1;
+      }
+    }
+    .form-radios-container {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 0px;
+
+      width: 496px;
+      height: 31px;
+
+      /* Inside auto layout */
+
+      flex: none;
+      order: 1;
+      flex-grow: 0;
+
+      .radio-button {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 0px;
+        gap: 4px;
+
+        height: 44px;
+
+        &.start {
+          width: 90px;
+        }
+
+        label {
+          height: 24px;
+
+          font-family: "Heebo";
+          font-style: normal;
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 24px;
+
+          text-align: right;
+
+          color: #000000;
+        }
       }
     }
     .form-input-container-agreement {

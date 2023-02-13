@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://medical-order-backend-example.vercel.app/api',
+  apiUrl: 'https://medical-order.onrender.com',
 };

@@ -13,7 +13,7 @@
     <div class="form-image"></div>
     <div class="form-title">{{ "registration.title" | i18next }}</div>
     <form #form="ngForm" (ngSubmit)="submit(form, $event)">
-      <div class="form-input-container">
+      <div class="form-input-container first-name">
         <label
           >{{ "registration.firstName" | i18next
           }}<span id="messageError" *ngIf="firstName.errors && form.submitted">
@@ -21,7 +21,7 @@
           </span></label
         >
         <input
-          class="form-input-container--input"
+          class="form-input-container--input input-style"
           type="string"
           #firstName="ngModel"
           name="firstName"
@@ -39,7 +39,7 @@
           </span></label
         >
         <input
-          class="form-input-container--input"
+          class="form-input-container--input input-style"
           type="string"
           name="lastName"
           ngModel
@@ -59,7 +59,7 @@
           </span>
         </label>
         <input
-          class="form-input-container--input"
+          class="form-input-container--input input-style"
           type="string"
           #idNumber="ngModel"
           name="idNumber"
@@ -69,14 +69,32 @@
           required
         />
       </div>
-      <mat-radio-group ngModel name="isPassport" class="form-radios-container">
-        <mat-radio-button [value]="false" class="radio-button">{{
-          "registration.id" | i18next
-        }}</mat-radio-button>
-        <mat-radio-button [value]="true" class="radio-button">{{
-          "registration.passport" | i18next
-        }}</mat-radio-button>
-      </mat-radio-group>
+      <div class="form-radios-container">
+        <div class="radio-button start">
+          <input
+            type="radio"
+            id="option1"
+            name="radiobutton"
+            ngModel
+            name="isPassport"
+            [value]="false"
+          />
+          <label for="option1">{{ "registration.id" | i18next }}</label>
+        </div>
+
+        <div class="radio-button">
+          <input
+            type="radio"
+            id="option2"
+            name="radiobutton"
+            ngModel
+            name="isPassport"
+            [value]="true"
+          />
+          <label for="option2">{{ "registration.passport" | i18next }}</label>
+        </div>
+      </div>
+
       <div class="form-input-container">
         <label>{{ "registration.birthDate" | i18next }}</label>
 
@@ -151,7 +169,7 @@
           </mat-form-field>
 
           <input
-            class="form-input--medium-select"
+            class="form-input--medium-select input-style"
             type="string"
             #phoneBase="ngModel"
             name="phoneBase"
