@@ -1,0 +1,33 @@
+<div class="order">
+  <div class="order-container">
+    <div class="order-container-image"></div>
+    <div class="order-container-title">{{ "order.title" | i18next }}</div>
+    <div class="order-container-element">
+      <div>{{ "order.date" | i18next }}</div>
+      <span>{{ date.day }}</span>
+    </div>
+    <div class="order-container-element">
+      <div>{{ "order.time" | i18next }}</div>
+      <span>{{ date.time }}</span>
+    </div>
+    <div class="order-container-element">
+      <div>{{ "registration.reason" | i18next }}</div>
+      <span>{{ reason }}</span>
+    </div>
+    <div class="order-container-element">
+      <div>{{ "order.patientName" | i18next }}</div>
+      <span>{{ fullName }}</span>
+    </div>
+    <div class="order-container-instructions">
+      <div *ngFor="let instruction of instrustions">
+        {{ instruction }}
+      </div>
+    </div>
+    <div class="order-container--actions">
+      <button>
+        <span>{{ "order.downloadButtonText" | i18next }}</span>
+      </button>
+      <div></div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,50 @@
+{
+  "welcome": "english",
+  "registration": {
+    "title": "Registration form",
+    "firstName": "First name",
+    "lastName": "Last name",
+    "id": "ID",
+    "passport": "PASSPORT",
+    "birthDate": "Date of birth",
+    "day": "dd",
+    "month": "mm",
+    "months": [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December"
+    ],
+    "year": "yyyy",
+    
+    "reason": "Reason for arrival for examination",
+    "reasonSelectedOption": "Choose reason for arrival",
+    "reasons": ["Reason 1", "Reason 2", "Reason 3", "Reason 4"],
+    "phone": "Phone",
+    "HMO": "HMO",
+    "HMOs": ["Clalit", "Macabi", "Meuhedet", "Leumit"],
+    "city": "City",
+    "authorizationText": "I authorize the sampling company to send me the test results based on the information entered upon registration.",
+    "continueButtonText": "Continue"    
+  },
+  "order": {
+    "title": "Order Referral",
+    "time": "Time",
+    "date": "Registration date",
+    "patientName": "Patient Name",
+    "downloadButtonText": "Download",
+    "instrustions": [
+      "• Please be ready to present this voucher together with a compatible identification document",
+      "• This voucher is intended for single use and only for the registered person named above",
+      "• The voucher can be printed or displayedon a mobile phone"
+    ]
+  }
+}

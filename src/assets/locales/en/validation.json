@@ -1,0 +1,6 @@
+{
+    "isObligatory": "The answer is obligatory",
+    "isNotAString": "It is not a string",
+    "isNotChosen": "Option is not chosen",
+    "isInvalidPhone": "Phone number is invalid"
+}

@@ -1,0 +1,6 @@
+{
+    "isObligatory": "Ответ обязателен",
+    "isNotAString": "Это не строка",
+    "isNotChosen": "Опция не выбрана",
+    "isInvalidPhone": "Номер телефона недействителен"
+}

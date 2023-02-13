@@ -1,0 +1,6 @@
+{
+    "isObligatory": "الجواب وجوب" ,
+    "isNotAString": "إنها ليست سلسلة" ,
+    "isNotChosen": "لم يتم اختيار الخيار" ,
+    "isInvalidPhone": "رقم الهاتف غير صالح"
+}

@@ -1,0 +1,166 @@
+@mixin field {
+  font-family: "SF Pro Display";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+
+  color: #000000;
+}
+
+@mixin value {
+  height: 21px;
+
+  font-family: "SF Pro Display";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 21px;
+
+  color: #000000;
+
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+
+.order {
+  height: 100vh;
+  width: 100vw;
+  background-image: url(../../../assets/images/background.png) center no-repeat
+    contain;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .order-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px;
+    gap: 7px;
+
+    position: absolute;
+    width: 536px;
+    height: 650px;
+    top: 233px;
+
+    background: #ffffff;
+
+    box-shadow: 0px 4px 4px rgba(51, 51, 51, 0.1);
+    border-radius: 20px;
+
+    .order-container-instructions {
+      width: 489px;
+
+      font-family: "Heebo";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 18px;
+
+      color: #000000;
+
+      flex: none;
+      order: 7;
+      flex-grow: 0;
+    }
+    .order-container-image {
+      width: 228px;
+      height: 52px;
+      background: url(../../../assets/images/logo-left.png);
+    }
+
+    .order-container-title {
+      height: 29px;
+      font-family: "SF Pro Display";
+      font-style: normal;
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 29px;
+      text-align: center;
+      color: #1b3b72;
+    }
+
+    .order-container-element {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 0px;
+      gap: 8px;
+
+      width: 488px;
+      height: 41px;
+
+      flex: none;
+      order: 2;
+      align-self: stretch;
+      flex-grow: 0;
+
+      div {
+        @include field;
+      }
+
+      span {
+        @include value;
+      }
+    }
+
+    .order-container--actions {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 0px;
+      gap: 24px;
+
+      width: 170px;
+      height: 243px;
+
+      flex: none;
+      order: 6;
+      flex-grow: 0;
+
+      button {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 16px;
+        gap: 24px;
+
+        width: 170px;
+        height: 44px;
+
+        background: #0a4691;
+        border-radius: 10px;
+
+        flex: none;
+        order: 0;
+        flex-grow: 0;
+
+        span {
+          width: 143px;
+          height: 21px;
+
+          font-family: "SF Pro Display";
+          font-style: normal;
+          font-weight: 500;
+          font-size: 18px;
+          line-height: 21px;
+
+          color: #fbfbfb;
+
+          flex: none;
+          order: 0;
+          flex-grow: 0;
+        }
+      }
+
+      div {
+        width: 167.58px;
+        height: 175px;
+        background: url(../../../assets/images/qr-code.png);
+      }
+    }
+  }
+}

@@ -1,0 +1,217 @@
+<div class="form">
+  <div class="form-container">
+    <div class="form-lang-tab">
+      <button
+        class="form-lang-tab-button"
+        *ngFor="let lang of languages"
+        name="{{ lang }}"
+        (click)="changeLanguage($event)"
+      >
+        {{ lang | uppercase }}
+      </button>
+    </div>
+    <div class="form-image"></div>
+    <div class="form-title">{{ "registration.title" | i18next }}</div>
+    <form #form="ngForm" (ngSubmit)="submit(form, $event)">
+      <div class="form-input-container">
+        <label
+          >{{ "registration.firstName" | i18next
+          }}<span id="messageError" *ngIf="firstName.errors && form.submitted">
+            Should contain at least 2 letters.
+          </span></label
+        >
+        <input
+          class="form-input-container--input"
+          type="string"
+          #firstName="ngModel"
+          name="firstName"
+          ngModel
+          required
+          minlength="2"
+          pattern="[a-zA-Z]+$"
+        />
+      </div>
+      <div class="form-input-container">
+        <label
+          >{{ "registration.lastName" | i18next
+          }}<span id="messageError" *ngIf="lastName.errors && form.submitted">
+            Should contain at least 2 letters.
+          </span></label
+        >
+        <input
+          class="form-input-container--input"
+          type="string"
+          name="lastName"
+          ngModel
+          #lastName="ngModel"
+          required
+          minlength="2"
+          pattern="[a-zA-Z]+$"
+        />
+      </div>
+
+      <div class="form-input-container">
+        <label
+          >{{ "registration.id" | i18next }}
+
+          <span id="messageError" *ngIf="idNumber.errors && form.submitted">
+            Should contain at least 5 letters or numbers.
+          </span>
+        </label>
+        <input
+          class="form-input-container--input"
+          type="string"
+          #idNumber="ngModel"
+          name="idNumber"
+          ngModel
+          pattern="[a-zA-Z0-9]+$"
+          minlength="5"
+          required
+        />
+      </div>
+      <mat-radio-group ngModel name="isPassport" class="form-radios-container">
+        <mat-radio-button [value]="false" class="radio-button">{{
+          "registration.id" | i18next
+        }}</mat-radio-button>
+        <mat-radio-button [value]="true" class="radio-button">{{
+          "registration.passport" | i18next
+        }}</mat-radio-button>
+      </mat-radio-group>
+      <div class="form-input-container">
+        <label>{{ "registration.birthDate" | i18next }}</label>
+
+        <div class="form-input-container-select-dates">
+          <mat-form-field class="form-input--small-select" appearance="outline">
+            <mat-label>{{ "registration.day" | i18next }}</mat-label>
+            <mat-select ngModel name="day" required="true">
+              <mat-option *ngFor="let day of days" [value]="day">
+                {{ day }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field class="form-input--small-select" appearance="outline">
+            <mat-label>{{ "registration.month" | i18next }}</mat-label>
+            <mat-select ngModel name="month" required="true">
+              <mat-option
+                *ngFor="let month of months; index as i"
+                [value]="i + 1"
+              >
+                {{ month }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field class="form-input--small-select" appearance="outline">
+            <mat-label>{{ "registration.year" | i18next }}</mat-label>
+            <mat-select ngModel name="year" required="true">
+              <mat-option *ngFor="let year of years" [value]="year">
+                {{ year }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="form-input-container">
+        <label>{{ "registration.reason" | i18next }}</label>
+        <mat-form-field appearance="outline" class="form-input--large-select">
+          <mat-label>{{
+            "registration.reasonSelectedOption" | i18next
+          }}</mat-label>
+          <mat-select ngModel name="reason" required="true">
+            <mat-option *ngFor="let reason of reasons" [value]="reason">
+              {{ reason }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="form-input-container">
+        <label
+          >{{ "registration.phone" | i18next }}
+          <span id="messageError" *ngIf="phoneBase.errors && form.submitted">
+            Should contain at least 7 digits.
+          </span>
+        </label>
+        <div class="form-input-container-phones">
+          <mat-form-field appearance="outline" class="form-input--small-select">
+            <mat-select
+              ngModel
+              name="phoneIndex"
+              [compareWith]="compareObjects"
+              required="true"
+            >
+              <mat-option [value]="+972">{{ baseCodeAndFlag }}</mat-option>
+              <mat-option
+                *ngFor="let item of codesAndFlags"
+                [value]="item.dial_code"
+              >
+                {{ item.flag }}{{ " " }}{{ item.dial_code }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <input
+            class="form-input--medium-select"
+            type="string"
+            #phoneBase="ngModel"
+            name="phoneBase"
+            ngModel
+            minlength="7"
+            [value]="phoneBase | phoneNumberMask"
+            required
+          />
+        </div>
+      </div>
+
+      <div class="form-input-container">
+        <label>{{ "registration.HMO" | i18next }}</label>
+
+        <mat-form-field appearance="outline" class="form-input--large-select">
+          <mat-select ngModel name="HMO" required="true">
+            <mat-option *ngFor="let HMO of HMOs" [value]="HMO">
+              {{ HMO }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="form-input-container">
+        <label>{{ "registration.city" | i18next }}</label>
+        <mat-form-field appearance="outline" class="form-input--large-select">
+          <mat-select ngModel name="city" required="true">
+            <mat-option *ngFor="let city of cities" [value]="city">
+              {{ city }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="form-input-container-agreement">
+        <input
+          class="form-input-container-agreement--checkbox"
+          type="checkbox"
+          #agreement="ngModel"
+          ngModel
+          name="agreement"
+          required
+        />
+
+        <div>
+          {{ "registration.authorizationText" | i18next }}
+          <span
+            id="messageError"
+            *ngIf="agreement.errors?.['required'] && form.submitted"
+          >
+            Required</span
+          >
+        </div>
+      </div>
+
+      <div>
+        <button type="submit" [disabled]="isLoading">
+          <span>{{ "registration.continueButtonText" | i18next }}</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+<app-loader *ngIf="isLoading"></app-loader>
