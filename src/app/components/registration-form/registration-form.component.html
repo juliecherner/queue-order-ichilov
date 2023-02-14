@@ -5,8 +5,18 @@
         class="form-lang-tab-button"
         *ngFor="let lang of languages"
         name="{{ lang }}"
+        [ngClass]="{ 'active-color': lang === currentLanguage }"
         (click)="changeLanguage($event)"
       >
+        <img
+          *ngIf="lang !== currentLanguage"
+          src="./assets/images/pointer.png"
+        />
+
+        <img
+          *ngIf="lang === currentLanguage"
+          src="./assets/images/current-pointer.png"
+        />
         {{ lang | uppercase }}
       </button>
     </div>
