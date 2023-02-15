@@ -1,11 +1,32 @@
 import { Injectable } from '@angular/core';
 import { Languages } from '../../../assets/constants';
-import { RegistrationFormData, Order, Language, CustomDate } from '../../types';
+import {
+  RegistrationFormData,
+  Order,
+  Language,
+  CustomDate,
+  LayoutDirection,
+} from '../../types';
+
 @Injectable({
   providedIn: 'root',
 })
 export class UtilsService {
   constructor() {}
+  defineLanguageDirection(language: Language): LayoutDirection {
+    switch (language) {
+      case Languages.English:
+        return 'ltr';
+      case Languages.Russian:
+        return 'ltr';
+      case Languages.Hebrew:
+        return 'rtl';
+      case Languages.Arabic:
+        return 'rtl';
+      default:
+        return 'ltr';
+    }
+  }
 
   formatCityList(list: any[], language: Language) {
     const fields = {

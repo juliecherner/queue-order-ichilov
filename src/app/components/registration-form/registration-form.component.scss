@@ -7,6 +7,26 @@
   padding: 12px;
 }
 
+@mixin desktop-form-width {
+  width: 536px;
+}
+
+@mixin desktop-field-width {
+  width: 472px;
+}
+
+@mixin mobile-form-width {
+  width: 350px;
+}
+
+@mixin mobile-field-width {
+  width: 300px;
+}
+
+#messageError {
+  color: red;
+}
+
 .form {
   display: flex;
   flex-direction: column;
@@ -26,7 +46,7 @@
     gap: 7px;
 
     position: absolute;
-    width: 536px;
+    @include desktop-form-width;
     height: 1109.5px;
     top: 28px;
 
@@ -45,6 +65,8 @@
 
       width: 301px;
       height: 42.5px;
+
+      direction: ltr;
 
       .form-lang-tab-button {
         border: none;
@@ -69,14 +91,15 @@
 
         color: #c0d56d;
 
+        
+
         img {
           width: 18px;
           height: 22.5px;
         }
 
-        &.active-color{
-          color: #0A4691
-
+        &.active-color {
+          color: #0a4691;
         }
       }
     }
@@ -97,213 +120,286 @@
       text-align: center;
       color: #1b3b72;
     }
-    .form-input-container {
+
+    form {
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
-      padding: 0px;
-      gap: 8px;
+      justify-content: center;
+      align-items: center;
+      @include desktop-form-width;
 
-      width: 472px;
-      height: 91px;
-      flex: none;
-      order: 6;
-      flex-grow: 0;
-
-      label {
-        height: 21px;
-
-        font-family: "SF Pro Display";
-        font-style: normal;
-        font-weight: 400;
-        font-size: 18px;
-        line-height: 21px;
-
-        color: #000000;
-      }
-
-      .form-input-container--input {
-        box-sizing: border-box;
-
-        width: 472px;
-        height: 59px;
-
-        background: #ffffff;
-        border: 1px solid #0a4691;
-        border-radius: 4px;
-
-        @include input-text;
-      }
-
-      .form-input-container-select-dates {
+      .form-input-container {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         align-items: flex-start;
         padding: 0px;
-        gap: 6px;
-        width: 476px;
-        height: 59px;
+        gap: 8px;
+        @include desktop-field-width;
+        height: 91px;
         flex: none;
-        order: 0;
-        align-self: stretch;
-        flex-grow: 1;
-
-        .form-input--small-select {
-          width: 154.67px;
-          height: 59px;
-        }
-      }
-
-      .form-input-container-phones {
-        display: flex;
-        flex-direction: row;
-        align-items: flex-start;
-        padding: 0px;
-        gap: 16px;
-
-        width: 478px;
-        height: 53px;
-
-        /* Inside auto layout */
-
-        flex: none;
-        order: 2;
         flex-grow: 0;
 
-        .form-input--small-select {
-          background: #ffffff;
-          border: 1px solid #0a4691;
-          border-radius: 4px;
-          width: 154.67px;
-          height: 57px;
-          font-family: "Heebo";
+        label {
+          height: 21px;
+
+          font-family: "SF Pro Display";
           font-style: normal;
           font-weight: 400;
           font-size: 18px;
-          line-height: 26px;
+          line-height: 21px;
+
+          color: #000000;
         }
 
-        .form-input--medium-select {
+        .form-input-container--input {
           box-sizing: border-box;
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-          gap: 12px;
-          width: 313px;
+          @include desktop-field-width;
           height: 59px;
+
           background: #ffffff;
           border: 1px solid #0a4691;
           border-radius: 4px;
-          flex: none;
-          order: 1;
-          flex-grow: 0;
 
-          &.input-style {
-            @include input-text;
+          @include input-text;
+        }
+
+        .form-input-container-select-dates {
+          display: flex;
+          flex-direction: row;
+          align-items: flex-start;
+          padding: 0px;
+          gap: 6px;
+          @include desktop-field-width;
+          height: 59px;
+          flex: none;
+          align-self: stretch;
+          flex-grow: 1;
+
+          .form-input--small-select {
+            width: 154.67px;
+            height: 59px;
           }
         }
+
+        .form-input-container-phones {
+          display: flex;
+          flex-direction: row;
+          align-items: flex-start;
+          padding: 0px;
+          gap: 16px;
+
+          @include desktop-field-width;
+
+          height: 53px;
+
+          /* Inside auto layout */
+
+          flex: none;
+          flex-grow: 0;
+
+          .form-input--small-select {
+            background: #ffffff;
+            border: 1px solid #0a4691;
+            border-radius: 4px;
+            width: 154.67px;
+            height: 57px;
+            font-family: "Heebo";
+            font-style: normal;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 26px;
+          }
+
+          .form-input--medium-select {
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 12px;
+            width: 313px;
+            height: 59px;
+            background: #ffffff;
+            border: 1px solid #0a4691;
+            border-radius: 4px;
+            flex: none;
+            flex-grow: 0;
+
+            &.input-style {
+              @include input-text;
+            }
+          }
+        }
+
+        .form-input--large-select {
+          @include desktop-field-width;
+          height: 59px;
+          background: #ffffff;
+          flex: none;
+          order: 0;
+          align-self: stretch;
+          flex-grow: 1;
+        }
       }
-
-      .form-input--large-select {
-        width: 476px;
-        height: 59px;
-        background: #ffffff;
-        flex: none;
-        order: 0;
-        align-self: stretch;
-        flex-grow: 1;
-      }
-    }
-    .form-radios-container {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      padding: 0px;
-
-      width: 496px;
-      height: 31px;
-
-      /* Inside auto layout */
-
-      flex: none;
-      order: 1;
-      flex-grow: 0;
-
-      .radio-button {
+      .form-radios-container {
         display: flex;
         flex-direction: row;
         align-items: center;
         padding: 0px;
-        gap: 4px;
 
-        height: 44px;
+        @include desktop-field-width;
+        height: 31px;
 
-        &.start {
-          min-width: 90px;
+        /* Inside auto layout */
+
+        flex: none;
+        flex-grow: 0;
+
+        .radio-button {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          padding: 0px;
+          gap: 4px;
+
+          height: 44px;
+
+          &.start {
+            min-width: 90px;
+          }
+
+          label {
+            height: 24px;
+
+            font-family: "Heebo";
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 24px;
+
+            text-align: right;
+
+            color: #000000;
+          }
         }
+      }
+      .form-input-container-agreement {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 0px;
+        gap: 16px;
 
-        label {
-          height: 24px;
+        @include desktop-field-width;
+        min-height: 35px;
+
+        flex: none;
+        flex-grow: 0;
+      }
+
+      button[type="submit"] {
+        margin-top: 8px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 16px;
+        gap: 24px;
+        width: 206px;
+        height: 44px;
+        background: #0a4691;
+        border-radius: 10px;
+        flex: none;
+
+        flex-grow: 0;
+
+        span {
+          height: 29px;
 
           font-family: "Heebo";
           font-style: normal;
-          font-weight: 400;
-          font-size: 16px;
-          line-height: 24px;
-
+          font-weight: 500;
+          font-size: 20px;
+          line-height: 29px;
           text-align: right;
 
-          color: #000000;
+          color: #fbfbfb;
         }
-      }
-    }
-    .form-input-container-agreement {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      padding: 0px;
-      gap: 16px;
-
-      width: 478px;
-      min-height: 35px;
-
-      flex: none;
-      order: 4;
-      flex-grow: 0;
-    }
-
-    button[type="submit"] {
-      margin-top: 8px;
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-      padding: 16px;
-      gap: 24px;
-      width: 206px;
-      height: 44px;
-      background: #0a4691;
-      border-radius: 10px;
-      flex: none;
-      order: 5;
-      flex-grow: 0;
-
-      span {
-        height: 29px;
-
-        font-family: "Heebo";
-        font-style: normal;
-        font-weight: 500;
-        font-size: 20px;
-        line-height: 29px;
-        text-align: right;
-
-        color: #fbfbfb;
       }
     }
   }
 }
 
-#messageError {
-  color: red;
+@media only screen and (max-width: 650px) {
+  .form {
+    
+    .form-container {
+      height: 1200px;
+      @include mobile-form-width;
+
+      form {
+        @include mobile-form-width;
+
+        .form-input-container {
+          @include mobile-field-width;
+
+          &.phones-container {
+            height: 170px;
+          }
+
+          &.dates-container {
+            height: 220px;
+          }
+
+          label {
+            span {
+              font-size: 15px;
+            }
+          }
+
+          .form-input-container--input {
+            @include mobile-field-width;
+          }
+
+          .form-input-container-select-dates {
+            @include mobile-field-width;
+            display: flex;
+            flex-direction: column;
+
+            .form-input--small-select{
+              @include mobile-field-width;
+            }
+          }
+
+          .form-input-container-phones {
+            display: flex;
+            flex-direction: column;
+
+            @include mobile-field-width;
+
+            .form-input--small-select {
+              @include mobile-field-width;
+            }
+
+            .form-input--medium-select {
+              @include mobile-field-width;
+            }
+          }
+
+          .form-input--large-select {
+            @include mobile-field-width;
+          }
+        }
+        .form-radios-container {
+          @include mobile-field-width;
+        }
+        .form-input-container-agreement {
+          @include mobile-field-width;
+
+          div {
+            text-align: justify;
+          }
+        }
+      }
+    }
+  }
 }

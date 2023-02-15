@@ -13,6 +13,7 @@ import { DataService } from '../../services/data/data.service';
 import { UtilsService } from 'src/app/services/utils/utils.service';
 import { ErrorDialogComponent } from '../error-dialog/error-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
+import { LayoutDirection } from '../../types';
 import './registration-form.component';
 
 import {
@@ -45,6 +46,7 @@ export class RegistrationFormComponent {
   baseCodeAndFlag = '🇮🇱 +972';
   baseCode = '+972';
   initialFormValue: RegistrationFormData = initialRegistrationForm;
+  layoutDirection: LayoutDirection = 'ltr';
 
   readonly months = t('registration.months', {
     returnObjects: true,
@@ -75,7 +77,9 @@ export class RegistrationFormComponent {
     this.setLoader(true);
 
     this.currentLanguage = i18next.language as Language;
-
+    this.layoutDirection = this.utilsService.defineLanguageDirection(
+      this.currentLanguage
+    );
     this.codesSubscription = this.loginService.getPhoneCodesList().subscribe({
       next: (data) => {
         this.codesAndFlags = data;
@@ -122,7 +126,7 @@ export class RegistrationFormComponent {
       next: (data) => {
         this.loginService.markUserAsRegistered();
         this.setLoader(false);
-        this.dataService.changeData(newOrder);
+        this.dataService.changeData(data);
         this.router.navigate(['/order-referral']);
       },
       error: () => {

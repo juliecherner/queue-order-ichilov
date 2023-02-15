@@ -8,6 +8,22 @@
   color: #000000;
 }
 
+@mixin desktop-form-width {
+  width: 536px;
+}
+
+@mixin desktop-form-width {
+  width: 488px;
+}
+
+@mixin mobile-form-width {
+  width: 350px;
+}
+
+@mixin mobile-field-width {
+  width: 300px;
+}
+
 @mixin value {
   height: 21px;
 
@@ -42,7 +58,7 @@
     gap: 7px;
 
     position: absolute;
-    width: 536px;
+    @include desktop-form-width;
     height: 650px;
     top: 233px;
 
@@ -52,7 +68,7 @@
     border-radius: 20px;
 
     .order-container-instructions {
-      width: 489px;
+      @include desktop-form-width;
 
       font-family: "Heebo";
       font-style: normal;
@@ -90,8 +106,7 @@
       padding: 0px;
       gap: 8px;
 
-      width: 488px;
-      height: 41px;
+      @include desktop-form-width;
 
       flex: none;
       order: 2;
@@ -164,4 +179,26 @@
       }
     }
   }
+}
+
+@media only screen and (max-width: 650px) {
+  .order {    
+    .order-container {
+      @include mobile-form-width;
+      height: 650px;
+      top: 120px;
+
+  
+      .order-container-instructions {
+        @include mobile-field-width;
+        text-align: justify;
+      }
+  
+      .order-container-element {
+        @include mobile-field-width;
+      }
+  
+    }
+  }
+
 }

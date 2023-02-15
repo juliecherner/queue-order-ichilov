@@ -1,5 +1,5 @@
 <div class="form">
-  <div class="form-container">
+  <div class="form-container" [dir]="layoutDirection">
     <div class="form-lang-tab">
       <button
         class="form-lang-tab-button"
@@ -105,7 +105,7 @@
         </div>
       </div>
 
-      <div class="form-input-container">
+      <div class="form-input-container dates-container">
         <label>{{ "registration.birthDate" | i18next }}</label>
 
         <div class="form-input-container-select-dates">
@@ -153,7 +153,7 @@
           </mat-select>
         </mat-form-field>
       </div>
-      <div class="form-input-container">
+      <div class="form-input-container phones-container">
         <label
           >{{ "registration.phone" | i18next }}
           <span id="messageError" *ngIf="phoneBase.errors && form.submitted">
@@ -234,7 +234,7 @@
         </div>
       </div>
 
-      <div>
+      <div class="form-input-container">
         <button type="submit" [disabled]="isLoading">
           <span>{{ "registration.continueButtonText" | i18next }}</span>
         </button>

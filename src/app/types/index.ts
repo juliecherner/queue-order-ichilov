@@ -55,3 +55,5 @@ export type CustomDate = {
   day: string;
   time: string;
 };
+
+export type LayoutDirection = 'ltr' | 'rtl';
