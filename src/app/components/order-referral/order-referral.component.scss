@@ -21,6 +21,7 @@
 }
 
 @mixin mobile-field-width {
+  padding: 0 10px;
   width: 300px;
 }
 
@@ -187,7 +188,6 @@
       @include mobile-form-width;
       height: 650px;
       top: 120px;
-
   
       .order-container-instructions {
         @include mobile-field-width;
