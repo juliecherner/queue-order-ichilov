@@ -4,6 +4,9 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "test:e2e:open": "npx cypress open",
+    "test:e2e:run:dev": "npx cypress run --browser chrome",
+    "test:e2e:run:cloud": "npx cypress run --record --key 180b2ea4-abde-4a04-8979-58132c2b7232",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
@@ -35,6 +38,7 @@
     "@angular/compiler-cli": "^15.1.0",
     "@types/i18next-xhr-backend": "^1.4.2",
     "@types/jasmine": "~4.3.0",
+    "cypress": "^12.17.2",
     "jasmine-core": "~4.5.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.1.0",
