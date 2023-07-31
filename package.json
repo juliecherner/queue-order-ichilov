@@ -6,7 +6,7 @@
     "start": "ng serve",
     "test:e2e:open": "npx cypress open",
     "test:e2e:run:dev": "npx cypress run --browser chrome",
-    "test:e2e:run:cloud": "npx cypress run --record --key 180b2ea4-abde-4a04-8979-58132c2b7232",
+    "test:e2e:run:cloud": "npx cypress run --record --key ----parallel",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"

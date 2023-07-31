@@ -1,4 +1,4 @@
-### Login form for medical appointment order [![Cypress.io](https://img.shields.io/badge/tested%20with-Cypress-04C38E.svg)](https://www.cypress.io/) [![cypress](https://img.shields.io/endpoint?url=https://cloud.cypress.io/badge/simple/utaous/develop&style=flat&logo=cypress)](https://cloud.cypress.io/projects/utaous/runs) [![cypress](https://img.shields.io/endpoint?url=https://cloud.cypress.io/badge/count/utaous/develop&style=flat&logo=cypress)](https://cloud.cypress.io/projects/utaous/runs)
+### Login form for medical appointment order [![Cypress.io](https://img.shields.io/badge/tested%20with-Cypress-04C38E.svg)](https://www.cypress.io/)
 
 Technologies:
 
