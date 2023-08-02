@@ -45,5 +45,5 @@ Thumbs.db
 
 # Cypress screenshots and video
 
-/src/cypress/screenshots
-/src/cypress/videos
+/cypress/screenshots
+/cypress/videos
