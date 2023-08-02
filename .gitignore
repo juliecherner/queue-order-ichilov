@@ -42,3 +42,8 @@ testem.log
 Thumbs.db
 
 /.vs_code
+
+# Cypress screenshots and video
+
+/src/cypress/screenshots
+/src/cypress/videos
