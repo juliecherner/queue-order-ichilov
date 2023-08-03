@@ -115,11 +115,8 @@ describe("Form with validation errors in name can't be submited", () => {
 
     cy.get("input[name=firstName]").type("555");
 
-    cy.get("button[type=submit]")
-      .click()
-      .then(() => {
-        cy.wait(1000);
-        cy.get(".form-image").should("exist");
-      });
+    cy.get("button[type=submit]").click();
+    cy.wait(1000);
+    cy.get(".form-image").should("exist");
   });
 });
