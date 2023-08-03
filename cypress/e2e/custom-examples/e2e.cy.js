@@ -96,3 +96,30 @@ describe("Registration form fillin check", () => {
       .should("have.class", "ng-invalid");
   });
 });
+
+describe("Selects check", () => {
+  beforeEach(() => {
+    cy.visit("http://localhost:4200");
+  });
+
+  it("Options per select are provided", () => {
+    cy.get("mat-form-field").each(($select) => {
+      cy.wrap($select).get("div").should("exist");
+    });
+  });
+});
+
+describe("Form with validation errors in name can't be submited", () => {
+  it("", () => {
+    cy.visit("http://localhost:4200");
+
+    cy.get("input[name=firstName]").type("555");
+
+    cy.get("button[type=submit]")
+      .click()
+      .then(() => {
+        cy.wait(1000);
+        cy.get(".form-image").should("exist");
+      });
+  });
+});
