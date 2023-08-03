@@ -8,37 +8,91 @@ context("Navigation", () => {
   });
 });
 
-describe("Registration form", () => {
+describe("Language checks", () => {
   beforeEach(() => {
     cy.visit("http://localhost:4200");
   });
 
-  it("4 option of languages are used", () => {
+  it("4 option of languages are introduced on the first load", () => {
     cy.get(".form-lang-tab-button").should("have.length", 4);
+  });
+});
+
+describe("Non intarrctive elements and labels appear", () => {
+  beforeEach(() => {
+    cy.visit("http://localhost:4200");
   });
 
   it("logo appears", () => {
     cy.get(".form-image").should("exist");
   });
 
+  it("Agreement condition appears", () => {
+    cy.get(".form-input-container-agreement")
+      .siblings("div")
+      .should("not.be.empty");
+  });
+
+  it("Form labels and title appear", () => {
+    cy.get(".form-title").should("not.be.empty");
+
+    cy.get(".form-input-container").each(($container) => {
+      cy.wrap($container).siblings("label").should("not.be.empty");
+    });
+
+    cy.get(".radio-button").each(($button) => {
+      cy.wrap($button).siblings("label").should("not.be.empty");
+    });
+
+    cy.get("mat-label").each(($label) => {
+      cy.wrap($label).should("not.be.empty");
+    });
+
+    cy.get(
+      ".form-input-container .phones-container mat-select div div span span"
+    ).should("not.be.empty");
+  });
+});
+
+describe("Registration form fillin check", () => {
+  beforeEach(() => {
+    cy.visit("http://localhost:4200");
+  });
+
   it("form inputs are writable and contain text input", () => {
-    const name = "Julie";
-    const surname = "Cherner";
-    const id = 123456789;
-    const phone = 123456789;
+    const firstName = "Julie";
+    const lastName = "Cherner";
+    const idNumber = 123456789;
+    const phoneBase = 123456789;
 
-    cy.get("[name=lastName] .form-input-container--input").type(`${surname}`);
-    cy.get("[name=firstName] .form-input-container--input").type(`${name}`);
-    cy.get("[name=idNumber] .form-input-container--input").type(`${id}`);
-    cy.get("[name=phoneBase] .form-input-container--input").type(`${phone}`);
+    cy.get("input[name=firstName]")
+      .type(firstName)
+      .should("have.value", firstName);
 
-    cy.get("[name=lastName] .form-input-container--input").contains(
-      `${surname}`
-    );
-    cy.get("[name=firstName] .form-input-container--input").contains(`${name}`);
-    cy.get("[name=idNumber] .form-input-container--input").contains(`${id}`);
-    cy.get("[name=phoneBase] .form-input-container--input").contains(
-      `${phone}`
-    );
+    cy.get("input[name=lastName]")
+      .type(lastName)
+      .should("have.value", lastName);
+
+    cy.get("input[name=idNumber]")
+      .type(idNumber)
+      .should("have.value", idNumber);
+
+    cy.get("input[name=phoneBase]")
+      .type(phoneBase)
+      .should("have.value", phoneBase);
+  });
+
+  it("checkbox is clickable and save its checked/unchecked status by clicking", () => {
+    cy.get(".form-input-container-agreement input[type=checkbox]")
+      .check()
+      .should("have.class", "ng-valid");
+  });
+
+  it("checkbox may be unchecked", () => {
+    cy.get(".form-input-container-agreement input[type=checkbox]")
+      .check()
+      .should("have.class", "ng-valid")
+      .uncheck()
+      .should("have.class", "ng-invalid");
   });
 });
